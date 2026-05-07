@@ -64,10 +64,8 @@ body {
   box-shadow: 0 8px 20px -10px rgba(60, 40, 20, 0.25);
 }
 
-/* Duck illustrations — most have white pixel backgrounds, multiply blends them out on cream */
-.duck-img {
-  mix-blend-mode: multiply;
-}
+/* Duck illustrations — backgrounds removed via Sharp at build time; no CSS needed */
+.duck-img {}
 
 /* Hand-drawn dotted line — used for separators inside cards */
 .dotted-rule {

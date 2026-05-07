@@ -8,3 +8,4 @@ Cand isi fac temele vor avea carti si ochelari. Cand se joaca vor avea jucarii. 
 Userul va da scroll si vor aparea facilitati print text, insotit de imagini cu locul daca e cazul, si ratuste colorate unde se potrivesc pentru a umple de culoare.
 Jos de tot, vom avea preturile si un buton care ne va deschide direct o conversatie in whatsapp cu administratorul.
 
+A cute cartoon duck character, yellow feathers, big expressive eyes, round chubby body, small orange beak and feet, clean vector-style illustration, flat 2D design with subtle shading, PNG, transparent background, no background, friendly and energetic personality, Duolingo mascot style, suitable as a brand mascot, no text, full body visible, slightly tilted head suggesting curiosity. Very similar to Club Penguin but with ducks.
