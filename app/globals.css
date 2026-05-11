@@ -18,8 +18,9 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-fredoka), system-ui, sans-serif;
+    font-family: var(--font-display), system-ui, sans-serif;
     color: #2d3436;
+    font-weight: 800;
     letter-spacing: -0.01em;
   }
 }

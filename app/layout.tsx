@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Fredoka, Nunito } from 'next/font/google'
+import { Baloo_2, Nunito } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const fredoka = Fredoka({
+const baloo = Baloo_2({
   subsets: ['latin', 'latin-ext'],
-  weight: ['600'],
-  variable: '--font-fredoka',
+  weight: ['700', '800'],
+  variable: '--font-display',
   display: 'swap',
 })
 
@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ro" className={`${fredoka.variable} ${nunito.variable}`}>
+    <html lang="ro" className={`${baloo.variable} ${nunito.variable}`}>
       <body>
         {children}
         <Analytics />

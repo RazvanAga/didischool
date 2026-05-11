@@ -18,7 +18,7 @@ const config: Config = {
         'text-secondary': '#636E72',
       },
       fontFamily: {
-        display: ['var(--font-fredoka)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         body: ['var(--font-nunito)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
