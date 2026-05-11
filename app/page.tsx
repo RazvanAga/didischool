@@ -1,5 +1,6 @@
 import { AteliereSection } from '@/components/AteliereSection'
 import { FAQSection } from '@/components/FAQSection'
+import { Footer } from '@/components/Footer'
 import { Hero } from '@/components/Hero'
 import { IncludePretulSection } from '@/components/IncludePretulSection'
 import { PreturiSection } from '@/components/PreturiSection'
@@ -21,6 +22,8 @@ export default function Home() {
         <FAQSection />
         <WavyDivider topColor="#FFF8E7" bottomColor="#FFD700" />
         <PreturiSection />
+        <WavyDivider topColor="#FFD700" bottomColor="#FFF8E7" />
+        <Footer />
       </main>
       <StickyCTA />
     </>
