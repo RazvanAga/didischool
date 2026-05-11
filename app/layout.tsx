@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Fredoka, Nunito } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const fredoka = Fredoka({
@@ -75,6 +76,7 @@ export default function RootLayout({
     <html lang="ro" className={`${fredoka.variable} ${nunito.variable}`}>
       <body>
         {children}
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
