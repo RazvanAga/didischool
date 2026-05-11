@@ -1,31 +1,31 @@
-import type { Metadata } from 'next'
-import { Caveat, Patrick_Hand, Nunito } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Fredoka, Nunito } from 'next/font/google'
 import './globals.css'
 
-const caveat = Caveat({
-  weight: ['500', '700'],
+const fredoka = Fredoka({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-caveat',
-  display: 'swap',
-})
-
-const patrick = Patrick_Hand({
-  weight: '400',
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-patrick',
+  weight: ['600'],
+  variable: '--font-fredoka',
   display: 'swap',
 })
 
 const nunito = Nunito({
   subsets: ['latin', 'latin-ext'],
+  weight: ['400', '700', '800'],
   variable: '--font-nunito',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Didi Summer School 2026 — Giroc, Timiș',
+  title: 'Didi Summer School 2026 — Tabără de zi în Giroc, 4-12 ani',
   description:
-    'Summer School pentru copii de la grădiniță până în clasa a IV-a. 15 iunie – 15 septembrie, Giroc. Supraveghere 08:00–17:00, ateliere de programare, engleză și artă.',
+    'Vara copilului tău pe 2000 mp de curte, cu supraveghere caldă și activități zilnice. 15 iunie – 15 septembrie. Giroc, Timiș.',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -34,14 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ro">
-      <body
-        className={`${caveat.variable} ${patrick.variable} ${nunito.variable} font-nunito bg-paper-edge text-ink`}
-      >
-        <div className="max-w-[430px] mx-auto relative bg-paper paper-grain shadow-[0_0_60px_rgba(60,40,20,0.08)]">
-          {children}
-        </div>
-      </body>
+    <html lang="ro" className={`${fredoka.variable} ${nunito.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }

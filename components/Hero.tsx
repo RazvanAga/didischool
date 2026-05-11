@@ -2,146 +2,144 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { WA_LINK } from '@/lib/constants'
-import { ScribbleFrame, HandArrow, StarSparkle, LeafScribble } from './Hand'
+import { Button } from './Button'
+import { HERO_DETAILS, WHATSAPP_MESSAGES, waLink } from '@/lib/constants'
+import { trackWhatsApp } from '@/lib/tracking'
 
-export default function Hero() {
+const overshoot = [0.34, 1.56, 0.64, 1] as const
+
+export function Hero() {
   return (
-    <section className="relative px-5 pt-7 pb-4">
-      {/* Logo — taped tag, off-axis */}
-      <div className="flex justify-end mb-2">
-        <div
-          className="relative bg-white p-1.5 shadow-[0_4px_12px_-6px_rgba(60,40,20,0.4)]"
-          style={{ transform: 'rotate(3deg)' }}
-        >
-          <Image
-            src="/images/logo.jpg"
-            alt="Didi Afterschool"
-            width={62}
-            height={62}
-            className="block object-cover"
-            priority
-          />
-          <span
-            className="absolute -top-2 left-1/2 w-12 h-4 -translate-x-1/2 -rotate-6"
-            style={{ background: 'rgba(232, 181, 61, 0.6)' }}
-            aria-hidden
-          />
-        </div>
-      </div>
+    <section className="relative bg-brand-yellow overflow-hidden pt-12 pb-20 px-5">
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="flex justify-center"
+      >
+        <Image
+          src="/images/logo.png"
+          alt="Didi Afterschool"
+          width={96}
+          height={96}
+          priority
+          className="h-20 w-20 object-contain"
+        />
+      </motion.div>
 
-      {/* Scribbled frame around the title block */}
-      <ScribbleFrame color="#2A2520" strokeWidth={2} padding="px-5 pt-7 pb-5">
+      <div className="relative mt-6 flex justify-center">
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="relative text-center"
+          initial={{ y: 120, scaleY: 0.6, scaleX: 1.2, opacity: 0 }}
+          animate={{
+            y: [120, -8, 0, 0],
+            scaleY: [0.6, 1.15, 0.95, 1],
+            scaleX: [1.2, 0.9, 1.03, 1],
+            opacity: [0, 1, 1, 1],
+          }}
+          transition={{
+            duration: 0.8,
+            times: [0, 0.55, 0.8, 1],
+            ease: 'easeOut',
+          }}
         >
-          {/* Sparkle accents flanking the name */}
-          <StarSparkle
-            size={16}
-            className="absolute -left-1 top-2 -rotate-12"
-            color="#C25B3F"
-          />
-          <StarSparkle
-            size={14}
-            className="absolute right-0 top-0 rotate-12"
-            color="#E8B53D"
-          />
-
-          <h1 className="font-caveat font-bold text-[78px] leading-none text-ink mb-1">
-            Didi
-          </h1>
-          <p className="font-patrick text-2xl text-ink-soft tracking-wide mb-3">
-            Summer School <span className="text-terracotta">2026</span>
-          </p>
-
-          <div className="flex justify-center mb-3" aria-hidden>
-            <svg viewBox="0 0 200 10" className="w-44 h-3" preserveAspectRatio="none">
-              <path
-                d="M2 6 C 30 2, 60 9, 100 5 S 170 9, 198 4"
-                fill="none"
-                stroke="#C25B3F"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-
-          <p className="font-patrick text-lg text-ink-soft leading-snug px-4">
-            cea mai frumoasă vară
-            <br />
-            a copilului tău
-          </p>
-        </motion.div>
-      </ScribbleFrame>
-
-      {/* Duck + hand-drawn arrow */}
-      <div className="relative mt-4 flex justify-center">
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-        >
-          <Image
-            src="/images/duck.png"
-            alt="Didi Duck"
-            width={210}
-            height={210}
-            className="object-contain duck-img"
-            priority
-          />
+          <motion.div
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          >
+            <Image
+              src="/images/duck-avatars/duck.png"
+              alt="Didi rățușca"
+              width={180}
+              height={180}
+              priority
+              className="h-44 w-44 object-contain drop-shadow-[0_8px_16px_rgba(212,168,0,0.35)]"
+            />
+          </motion.div>
         </motion.div>
 
-        <LeafScribble
-          size={26}
-          className="absolute left-6 top-4 -rotate-12"
-          color="#5C7E4F"
-        />
-        <LeafScribble
-          size={20}
-          className="absolute right-8 bottom-2 rotate-45"
-          color="#5C7E4F"
-        />
+        <motion.div
+          initial={{ x: 30, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
+          className="absolute right-0 bottom-2"
+        >
+          <motion.div
+            animate={{ rotate: [-3, 3, -3] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <Image
+              src="/images/duck-avatars/duck-girl.png"
+              alt=""
+              width={72}
+              height={72}
+              className="h-16 w-16 object-contain"
+            />
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Date / location — flat text with tilde separators, no emoji */}
-      <p className="font-patrick text-base text-ink-soft text-center mt-4 px-2">
-        15 iunie&nbsp;–&nbsp;15 septembrie
-        <span className="mx-2 text-terracotta">~</span>
-        Giroc, Timiș
-      </p>
-      <p className="font-patrick text-sm text-ink-soft/80 text-center mb-5">
-        zilnic 08:00 – 17:00 &nbsp;·&nbsp; grădiniță – cls. a IV-a
-      </p>
+      <motion.h1
+        initial={{ opacity: 0, scale: 0.92 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.4, ease: overshoot }}
+        className="mt-6 text-center font-display text-[48px] leading-[1.05] text-text-primary"
+      >
+        Didi Summer School
+      </motion.h1>
 
-      {/* CTA */}
-      <div className="relative">
-        <motion.a
-          href={WA_LINK}
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35, duration: 0.45, ease: 'easeOut' }}
+        className="mt-3 text-center text-[17px] font-body font-normal text-text-primary/80 leading-relaxed"
+      >
+        cea mai frumoasă vară a copilului tău
+      </motion.p>
+
+      <motion.ul
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: {},
+          show: {
+            transition: { delayChildren: 0.5, staggerChildren: 0.08 },
+          },
+        }}
+        className="mt-6 flex flex-wrap justify-center gap-2"
+      >
+        {HERO_DETAILS.map((detail) => (
+          <motion.li
+            key={detail.label}
+            variants={{
+              hidden: { opacity: 0, y: 12, scale: 0.95 },
+              show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: overshoot } },
+            }}
+            className="rounded-chip bg-white px-3 py-2 text-[14px] font-body font-bold text-text-primary shadow-press-chip"
+          >
+            <span className="mr-1.5" aria-hidden="true">{detail.icon}</span>
+            {detail.label}
+          </motion.li>
+        ))}
+      </motion.ul>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16, scale: 0.94 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: 0.8, duration: 0.5, ease: overshoot }}
+        className="mt-8 flex justify-center"
+      >
+        <Button
+          as="a"
+          href={waLink(WHATSAPP_MESSAGES.hero)}
           target="_blank"
           rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="block w-full py-4 text-center font-caveat font-bold text-2xl text-paper bg-terracotta border-2 border-ink shadow-[5px_5px_0_-1px_#2A2520] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0_-1px_#2A2520] transition-all"
+          variant="primary"
+          onClick={() => trackWhatsApp('hero')}
+          data-testid="cta-hero"
         >
-          scrie-ne pe WhatsApp →
-        </motion.a>
-
-        <span className="absolute -top-3 left-4 -rotate-3 bg-sun px-2 py-0.5 font-caveat text-base text-ink border border-ink shadow-[2px_2px_0_-1px_#2A2520]">
-          doar 30 de locuri
-        </span>
-      </div>
-
-      {/* Hand-drawn arrow inviting scroll */}
-      <div className="flex flex-col items-center mt-7 gap-1">
-        <span className="font-caveat text-xl text-ink-soft -rotate-2">
-          mai jos: ce face copilul aici
-        </span>
-        <HandArrow className="rotate-[60deg]" color="#5C7E4F" size={42} />
-      </div>
+          Vreau detalii
+        </Button>
+      </motion.div>
     </section>
   )
 }
