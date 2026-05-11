@@ -45,7 +45,7 @@ export function Hero() {
           initial={{ x: 30, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
-          className="absolute right-0 bottom-2"
+          className="absolute right-0 bottom-0"
         >
           <motion.div
             animate={{ rotate: [-3, 3, -3] }}
@@ -54,9 +54,9 @@ export function Hero() {
             <Image
               src="/images/duck-avatars/duck-girl.png"
               alt=""
-              width={72}
-              height={72}
-              className="h-16 w-16 object-contain"
+              width={180}
+              height={180}
+              className="h-44 w-44 object-contain"
             />
           </motion.div>
         </motion.div>
