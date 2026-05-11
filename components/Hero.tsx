@@ -36,7 +36,7 @@ export function Hero() {
               width={180}
               height={180}
               priority
-              className="h-44 w-44 object-contain drop-shadow-[0_8px_16px_rgba(212,168,0,0.35)]"
+              className="h-44 w-44 object-contain drop-shadow-[0_8px_16px_rgba(212,168,0,0.35)] scale-[2] origin-center"
             />
           </motion.div>
         </motion.div>
@@ -56,7 +56,7 @@ export function Hero() {
               alt=""
               width={180}
               height={180}
-              className="h-44 w-44 object-contain"
+              className="h-44 w-44 object-contain scale-[2] origin-center"
             />
           </motion.div>
         </motion.div>
