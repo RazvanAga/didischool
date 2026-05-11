@@ -1,4 +1,5 @@
 import { AteliereSection } from '@/components/AteliereSection'
+import { FAQSection } from '@/components/FAQSection'
 import { Hero } from '@/components/Hero'
 import { IncludePretulSection } from '@/components/IncludePretulSection'
 import { SpatiuSection } from '@/components/SpatiuSection'
@@ -16,6 +17,7 @@ export default function Home() {
         <ZiTipicaSection />
         <IncludePretulSection />
         <AteliereSection />
+        <FAQSection />
         <section className="px-5 py-16">
           <p className="text-center text-text-secondary font-body">
             (Următoarele secțiuni se construiesc în slice-urile următoare.)
