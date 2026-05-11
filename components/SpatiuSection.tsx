@@ -71,7 +71,7 @@ export function SpatiuSection() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="relative snap-center shrink-0 w-[78%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-warm-card bg-white"
+              className="relative snap-center shrink-0 w-[72%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-warm-card bg-white"
             >
               <Image
                 src={photo.src}

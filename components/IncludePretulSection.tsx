@@ -31,7 +31,7 @@ export function IncludePretulSection() {
           ariaLabel="Activitățile incluse în prețul de bază"
           items={INCLUDE_PRETUL}
           keyExtractor={(item) => item.title}
-          cardWidthPercent={80}
+          cardWidthPercent={72}
           renderItem={(item) => (
             <Card className="h-full flex flex-col items-start gap-3 min-h-[180px]">
               {item.duck && (

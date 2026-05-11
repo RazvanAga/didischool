@@ -21,7 +21,7 @@ export function Carousel<T>({
   items,
   renderItem,
   keyExtractor,
-  cardWidthPercent = 80,
+  cardWidthPercent = 72,
   ariaLabel,
 }: CarouselProps<T>) {
   const trackRef = useRef<HTMLDivElement>(null)

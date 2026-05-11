@@ -31,7 +31,7 @@ export function AteliereSection() {
           ariaLabel="Atelierele de specialitate"
           items={ATELIERE}
           keyExtractor={(item) => item.name}
-          cardWidthPercent={78}
+          cardWidthPercent={72}
           renderItem={(item) => (
             <Card className="h-full flex flex-col items-start gap-3 min-h-[220px]">
               <Image
