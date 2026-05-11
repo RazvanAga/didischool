@@ -18,8 +18,8 @@ const config: Config = {
         'text-secondary': '#636E72',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
-        body: ['var(--font-nunito)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-baloo)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-baloo)', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'warm-card': '0 4px 16px rgba(255, 215, 0, 0.15)',

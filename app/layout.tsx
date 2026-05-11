@@ -1,19 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Baloo_2, Nunito } from 'next/font/google'
+import { Baloo_2 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const baloo = Baloo_2({
   subsets: ['latin', 'latin-ext'],
-  weight: ['700', '800'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
-const nunito = Nunito({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '700', '800'],
-  variable: '--font-nunito',
+  weight: ['400', '500', '700', '800'],
+  variable: '--font-baloo',
   display: 'swap',
 })
 
@@ -73,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ro" className={`${baloo.variable} ${nunito.variable}`}>
+    <html lang="ro" className={baloo.variable}>
       <body>
         {children}
         <Analytics />
