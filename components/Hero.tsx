@@ -10,24 +10,8 @@ const overshoot = [0.34, 1.56, 0.64, 1] as const
 
 export function Hero() {
   return (
-    <section className="relative bg-brand-yellow overflow-hidden pt-12 pb-20 px-5">
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="flex justify-center"
-      >
-        <Image
-          src="/images/logo.png"
-          alt="Didi Afterschool"
-          width={96}
-          height={96}
-          priority
-          className="h-20 w-20 object-contain"
-        />
-      </motion.div>
-
-      <div className="relative mt-6 flex justify-center">
+    <section className="relative bg-brand-yellow overflow-hidden pt-6 pb-20 px-5">
+      <div className="relative flex justify-center">
         <motion.div
           initial={{ y: 120, scaleY: 0.6, scaleX: 1.2, opacity: 0 }}
           animate={{
