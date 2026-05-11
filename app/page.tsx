@@ -1,4 +1,5 @@
 import { Hero } from '@/components/Hero'
+import { IncludePretulSection } from '@/components/IncludePretulSection'
 import { SpatiuSection } from '@/components/SpatiuSection'
 import { StickyCTA } from '@/components/StickyCTA'
 import { WavyDivider } from '@/components/WavyDivider'
@@ -12,11 +13,12 @@ export default function Home() {
         <WavyDivider topColor="#FFD700" bottomColor="#FFF8E7" />
         <SpatiuSection />
         <ZiTipicaSection />
+        <IncludePretulSection />
         <section className="px-5 py-16">
           <p className="text-center text-text-secondary font-body">
             (Următoarele secțiuni se construiesc în slice-urile următoare.)
           </p>
-          <div className="h-[600px]" aria-hidden="true" />
+          <div className="h-[400px]" aria-hidden="true" />
         </section>
       </main>
       <StickyCTA />
