@@ -43,7 +43,7 @@ function InstagramIcon({ size = 22 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-cream pt-10 pb-32 px-5">
+    <footer className="bg-brand-yellow pt-10 pb-32 px-5">
       <div className="flex flex-col items-center gap-5 text-center">
         <Image
           src="/images/logo.png"
