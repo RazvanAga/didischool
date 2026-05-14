@@ -23,7 +23,8 @@
       "Bash(npx playwright *)",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Razvan\\\\Projects\\\\didischool\" -Recurse -Depth 3)",
       "Bash(Select-Object FullName)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(npx next *)"
     ]
   }
 }

@@ -43,7 +43,7 @@ function InstagramIcon({ size = 22 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-section-dark pt-10 pb-32 px-5">
+    <footer className="pt-10 pb-32 px-5" style={{ backgroundColor: '#78350F' }}>
       <div className="flex flex-col items-center gap-5 text-center">
         <Image
           src="/images/logo.png"
@@ -75,7 +75,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white active:translate-y-[2px] transition-transform"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/15 text-white active:translate-y-[2px] transition-transform"
             >
               <FacebookIcon size={22} />
             </a>
@@ -86,7 +86,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white active:translate-y-[2px] transition-transform"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/15 text-white active:translate-y-[2px] transition-transform"
             >
               <InstagramIcon size={22} />
             </a>

@@ -56,9 +56,9 @@ export function AteliereSection() {
                 <Image
                   src={item.duck}
                   alt=""
-                  width={160}
-                  height={160}
-                  className="w-[160px] h-[160px] object-contain"
+                  width={240}
+                  height={240}
+                  className="w-full max-w-[240px] h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
                 />
                 <h3 className="font-display text-[22px] leading-tight text-text-primary">

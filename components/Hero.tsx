@@ -12,12 +12,18 @@ export function Hero() {
     <section className="relative bg-brand-yellow overflow-hidden pt-10 pb-0">
       {/* Decorative background circles — same trajectory, staggered, GPU-accelerated */}
       {[
-        { className: 'w-32 h-32 -top-8 -right-10   bg-[#E8B800]/20', delay: 0,  duration: 18 },
-        { className: 'w-32 h-32 top-24  -left-12   bg-[#E8B800]/20', delay: 2,  duration: 18 },
-        { className: 'w-[104px] h-[104px] -top-6 left-[20%] bg-[#E8B800]/15', delay: 4,  duration: 12 },
-        { className: 'w-[104px] h-[104px] top-16 right-[18%] bg-[#E8B800]/15', delay: 6,  duration: 12 },
-        { className: 'w-6 h-6 top-8  left-[42%]  bg-[#E8B800]/30', delay: 8,  duration: 6  },
-        { className: 'w-6 h-6 top-36 right-[38%] bg-[#E8B800]/30', delay: 10, duration: 6  },
+        { className: 'w-32 h-32 top-[4%]  -right-10  bg-[#E8B800]/20', delay: 0,  duration: 18 },
+        { className: 'w-32 h-32 top-[58%] -left-12   bg-[#E8B800]/20', delay: 2,  duration: 18 },
+        { className: 'w-32 h-32 top-[28%] -right-14  bg-[#E8B800]/20', delay: 9,  duration: 18 },
+        { className: 'w-32 h-32 top-[78%] -left-10   bg-[#E8B800]/20', delay: 1,  duration: 18 },
+        { className: 'w-[104px] h-[104px] top-[18%] left-[15%]  bg-[#E8B800]/15', delay: 4,  duration: 12 },
+        { className: 'w-[104px] h-[104px] top-[72%] right-[12%] bg-[#E8B800]/15', delay: 6,  duration: 12 },
+        { className: 'w-[104px] h-[104px] top-[48%] left-[22%]  bg-[#E8B800]/15', delay: 11, duration: 12 },
+        { className: 'w-[104px] h-[104px] top-[90%] right-[20%] bg-[#E8B800]/15', delay: 3,  duration: 12 },
+        { className: 'w-6 h-6 top-[38%] left-[44%]  bg-[#E8B800]/30', delay: 8,  duration: 6  },
+        { className: 'w-6 h-6 top-[85%] right-[40%] bg-[#E8B800]/30', delay: 10, duration: 6  },
+        { className: 'w-6 h-6 top-[12%] left-[60%]  bg-[#E8B800]/30', delay: 5,  duration: 6  },
+        { className: 'w-6 h-6 top-[63%] right-[55%] bg-[#E8B800]/30', delay: 7,  duration: 6  },
       ].map((c, i) => (
         <motion.div
           key={i}
@@ -60,7 +66,7 @@ export function Hero() {
           className="mt-4 text-center font-body font-bold text-text-primary/80 leading-snug"
           style={{ fontSize: '18px' }}
         >
-          cea mai frumoasă vară a copilului tău
+          Cea mai frumoasă vară a copilului tău!
         </motion.p>
 
         {/* Info pills — discreet */}

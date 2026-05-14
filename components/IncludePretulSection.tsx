@@ -7,7 +7,7 @@ const spring = [0.34, 1.56, 0.64, 1] as const
 
 export function IncludePretulSection() {
   return (
-    <section className="relative bg-section-blue pt-12 pb-16 px-5">
+    <section id="include-pretul" className="relative bg-section-blue pt-12 pb-16 px-5">
       {/* Title pill */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}

@@ -25,6 +25,7 @@ export default function Home() {
         <FAQSection />
         <WavyDivider topColor="#FFF8E7" bottomColor="#FFD700" height={50} />
         <PreturiSection />
+        <WavyDivider topColor="#FFD700" bottomColor="#78350F" height={50} />
         <Footer />
       </main>
       <StickyCTA />

@@ -18,10 +18,9 @@ export const ADDRESS = 'Giroc, Timiș'
 export const STICKY_CTA_THRESHOLD_PX = 200
 
 export const HERO_DETAILS = [
-  { label: '15 iun – 15 sep', icon: '📅' },
-  { label: '4 – 12 ani', icon: '🧒' },
   { label: 'Giroc, Timiș', icon: '📍' },
   { label: '07:00 – 18:00', icon: '⏰' },
+  { label: '4 – 12 ani', icon: '🧒' },
 ] as const
 
 export const SPATIU_PHOTOS = [
@@ -82,7 +81,7 @@ export const ZI_TIPICA = [
     time: '07:00',
     title: 'Sosire (treptat)',
     description: 'Părintele lasă copilul în drumul spre serviciu.',
-    duck: '/images/duck-avatars/duck.png',
+    duck: '/images/duck-avatars/duck-car.png',
   },
   {
     time: '07:30',
@@ -130,7 +129,8 @@ export const ZI_TIPICA = [
     time: '18:00',
     title: 'Plecare (treptat)',
     description: 'Părinții iau copiii după serviciu.',
-    duck: '/images/duck-avatars/duck.png',
+    duck: '/images/duck-avatars/duck-car.png',
+    reversed: true,
   },
 ] as const
 
@@ -172,12 +172,6 @@ export const PRET_MASA = 20
 
 export const ATELIERE = [
   {
-    name: 'Programare',
-    price: 50,
-    description: 'Scratch, Python, Minecraft Hour of Code.',
-    duck: '/images/duck-avatars/duck-laptop.png',
-  },
-  {
     name: 'Engleză',
     price: 20,
     description: 'Conversație și joc tematic.',
@@ -190,54 +184,60 @@ export const ATELIERE = [
     duck: '/images/duck-avatars/duck-paint.png',
   },
   {
-    name: 'Șah',
+    name: 'Fizică și Experimente',
     price: 50,
-    description: 'Gândire strategică prin joc.',
-    duck: '/images/duck-avatars/duck.png',
+    description: 'Experimente interactive despre lumea din jur.',
+    duck: '/images/duck-avatars/duck-experiments.png',
+  },
+  {
+    name: 'Programare',
+    price: 50,
+    description: 'Scratch, Python, Minecraft Hour of Code.',
+    duck: '/images/duck-avatars/duck-laptop.png',
   },
   {
     name: 'Robotică',
     price: 60,
     description: 'Construcție și programare de roboței.',
-    duck: '/images/duck-avatars/duck.png',
+    duck: '/images/duck-avatars/duck-robotics.png',
   },
   {
-    name: 'Fizică și Experimente',
+    name: 'Șah',
     price: 50,
-    description: 'Experimente interactive despre lumea din jur.',
-    duck: '/images/duck-avatars/duck.png',
+    description: 'Gândire strategică prin joc.',
+    duck: '/images/duck-avatars/duck-chess.png',
   },
 ] as const
 
 export const FAQ = [
   {
-    question: 'Ce include prețul de 80 lei/zi?',
+    question: 'Cum mă înscriu și care e angajamentul?',
     answer:
-      'Supraveghere completă între 07:00 și 18:00, joacă în curtea de 2000 mp, teme de vacanță cu cadre didactice acreditate, coordonarea meselor. Atelierele de specialitate sunt opționale și se plătesc separat.',
+      'Trimite-ne un mesaj pe WhatsApp. Nu există un angajament minim — poți veni oricât. Plata se face la finalul lunii.',
   },
   {
-    question: 'Mâncarea e inclusă?',
+    question: 'Ce se întâmplă dacă copilul nu vine o zi?',
     answer:
-      'Nu. Mic dejun + prânz costă 20 lei/zi separat, comandate de la furnizori locali. Coordonăm noi comanda. Poți și aduce de acasă dacă preferi.',
+      'Anunță-ne în prealabil și ziua respectivă nu se facturează.',
   },
   {
-    question: 'Atelierele de specialitate sunt incluse?',
+    question: 'Ce firmă de catering aduce mâncarea?',
     answer:
-      'Nu, acestea se plătesc separat (Programare 75 lei, Engleză 50 lei, Artă 50 lei per sesiune). Programul exact se aranjează după înscrieri, în funcție de cerere. Scrie-ne pe WhatsApp ce te interesează.',
+      'Firma de catering se alege de comun acord cu părinții.',
   },
   {
     question: 'Ce vârste acceptați vara?',
     answer:
-      'De la 4 la 12 ani. Avem 2 grupe pe vârstă: mici (4-6 ani) și mari (7-12 ani). Activitățile și temele se adaptează per grup.',
+      'De la 4 la 12 ani. Avem 2 grupe: mici (4–6 ani) și mari (7–12 ani). Activitățile și temele se adaptează per grupă.',
   },
   {
-    question: 'Cum ajunge copilul la Didi?',
+    question: 'Ce trebuie să aducă copilul cu el?',
     answer:
-      'Părintele aduce dimineața (între 07:00 și 09:00) și îl ia înainte de 18:00. Suntem în Giroc, pe terenul familiei Aga.',
+      'Haine confortabile și de schimb, cremă de soare și apă. Mâncarea o coordonăm noi dacă optezi pentru pachetul cu masă, sau poți aduce de acasă.',
   },
   {
-    question: 'Cine supraveghează copiii?',
+    question: 'Copilul meu are alergii — cum gestionați mâncarea?',
     answer:
-      'Cadre didactice acreditate, inclusiv învățătoare activă la școala din Giroc. Pentru ateliere, specialiști în domeniu (programare, limbi străine, artă).',
+      'Ne anunți la înscriere și ne asigurăm că nu primește alimente la care este alergic.',
   },
 ] as const

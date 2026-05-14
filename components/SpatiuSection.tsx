@@ -47,7 +47,7 @@ export function SpatiuSection() {
         <div
           ref={scrollRef}
           onScroll={onScroll}
-          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [touch-action:pan-x]"
         >
           {SPATIU_PHOTOS.map((photo, i) => (
             <div
@@ -71,12 +71,12 @@ export function SpatiuSection() {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
-        className="mt-5 px-5 flex items-center gap-4"
+        className="mt-5 px-5 flex items-center gap-4 h-[180px]"
       >
-        {/* Duck — 1/3 width, pops on change */}
-        <div className="w-1/2 shrink-0 flex justify-center">
+        {/* Duck — 1/2 width, pops on change */}
+        <div className="w-1/2 shrink-0 flex justify-center items-center h-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex + '-duck'}
@@ -90,7 +90,7 @@ export function SpatiuSection() {
                 alt=""
                 width={160}
                 height={160}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain max-h-[160px]"
                 style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
               />
             </motion.div>

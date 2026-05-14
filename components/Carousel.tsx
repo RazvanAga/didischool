@@ -62,7 +62,7 @@ export function Carousel<T>({
       <div
         ref={trackRef}
         data-carousel-track
-        className="flex gap-4 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch]"
+        className="flex gap-4 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [touch-action:pan-x]"
         style={{ scrollbarWidth: 'none' }}
       >
         <style>{`[data-carousel-track]::-webkit-scrollbar{display:none}`}</style>

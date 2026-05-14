@@ -107,7 +107,7 @@ export function ZiTipicaSection() {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.06 }}
+        viewport={{ once: true, amount: 0.2 }}
         variants={{
           hidden: {},
           show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
@@ -148,6 +148,7 @@ export function ZiTipicaSection() {
                     width: '120px',
                     height: '120px',
                     filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.20))',
+                    transform: 'reversed' in entry && entry.reversed ? 'scaleX(-1)' : undefined,
                   }}
                 />
                 <span
