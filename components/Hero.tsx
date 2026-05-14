@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from './Button'
 import { HERO_DETAILS, WHATSAPP_MESSAGES, waLink } from '@/lib/constants'
@@ -10,120 +9,121 @@ const overshoot = [0.34, 1.56, 0.64, 1] as const
 
 export function Hero() {
   return (
-    <section className="relative bg-brand-yellow overflow-hidden pt-6 pb-20 px-5">
-      <div className="relative flex justify-center">
+    <section className="relative bg-brand-yellow overflow-hidden pt-10 pb-0">
+      {/* Decorative background circles — same trajectory, staggered, GPU-accelerated */}
+      {[
+        { className: 'w-32 h-32 -top-8 -right-10   bg-[#E8B800]/20', delay: 0,  duration: 18 },
+        { className: 'w-32 h-32 top-24  -left-12   bg-[#E8B800]/20', delay: 2,  duration: 18 },
+        { className: 'w-[104px] h-[104px] -top-6 left-[20%] bg-[#E8B800]/15', delay: 4,  duration: 12 },
+        { className: 'w-[104px] h-[104px] top-16 right-[18%] bg-[#E8B800]/15', delay: 6,  duration: 12 },
+        { className: 'w-6 h-6 top-8  left-[42%]  bg-[#E8B800]/30', delay: 8,  duration: 6  },
+        { className: 'w-6 h-6 top-36 right-[38%] bg-[#E8B800]/30', delay: 10, duration: 6  },
+      ].map((c, i) => (
         <motion.div
-          initial={{ y: 120, scaleY: 0.6, scaleX: 1.2, opacity: 0 }}
-          animate={{
-            y: [120, -8, 0, 0],
-            scaleY: [0.6, 1.15, 0.95, 1],
-            scaleX: [1.2, 0.9, 1.03, 1],
-            opacity: [0, 1, 1, 1],
-          }}
-          transition={{
-            duration: 0.8,
-            times: [0, 0.55, 0.8, 1],
-            ease: 'easeOut',
-          }}
+          key={i}
+          aria-hidden="true"
+          className={`pointer-events-none absolute rounded-full ${c.className}`}
+          animate={{ x: [0, 55, 0], y: [0, -28, 0] }}
+          transition={{ duration: c.duration, repeat: Infinity, ease: 'easeInOut', delay: c.delay }}
+        />
+      ))}
+
+      {/* Content */}
+      <div className="relative z-10 px-5">
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, duration: 0.5, ease: overshoot }}
+          className="text-center leading-none"
         >
-          <motion.div
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+          <span
+            className="block font-display font-extrabold"
+            style={{ fontSize: '68px', color: '#D04C4C', lineHeight: 1 }}
           >
-            <Image
-              src="/images/duck-avatars/duck.png"
-              alt="Didi rățușca"
-              width={180}
-              height={180}
-              priority
-              className="h-44 w-44 object-contain drop-shadow-[0_8px_16px_rgba(212,168,0,0.35)] scale-[2] origin-center"
-            />
-          </motion.div>
+            Didi
+          </span>
+          <span
+            className="block font-display text-text-primary"
+            style={{ fontSize: '36px', lineHeight: 1.15 }}
+          >
+            Summer School
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.28, duration: 0.4, ease: 'easeOut' }}
+          className="mt-4 text-center font-body font-bold text-text-primary/80 leading-snug"
+          style={{ fontSize: '18px' }}
+        >
+          cea mai frumoasă vară a copilului tău
+        </motion.p>
+
+        {/* Info pills — discreet */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.44, duration: 0.4, ease: 'easeOut' }}
+          className="mt-4 flex flex-wrap justify-center gap-2"
+        >
+          {HERO_DETAILS.map((detail) => (
+            <div
+              key={detail.label}
+              className="rounded-full px-3 py-1.5"
+              style={{ backgroundColor: 'rgba(255,255,255,0.45)' }}
+            >
+              <span className="text-[12.5px] font-body font-bold text-text-primary leading-none">
+                {detail.label}
+              </span>
+            </div>
+          ))}
         </motion.div>
 
+        {/* CTA */}
         <motion.div
-          initial={{ x: 30, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.5, ease: 'easeOut' }}
-          className="absolute right-0 bottom-0"
+          initial={{ opacity: 0, y: 16, scale: 0.94 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.5, ease: overshoot }}
+          className="mt-6"
         >
-          <motion.div
-            animate={{ rotate: [-3, 3, -3] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          <Button
+            as="a"
+            href={waLink(WHATSAPP_MESSAGES.hero)}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            onClick={() => trackWhatsApp('hero')}
+            data-testid="cta-hero"
+            className="w-full"
           >
-            <Image
-              src="/images/duck-avatars/duck-girl.png"
-              alt=""
-              width={180}
-              height={180}
-              className="h-44 w-44 object-contain scale-[2] origin-center"
-            />
-          </motion.div>
+            Hai cu noi!
+          </Button>
         </motion.div>
       </div>
 
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.4, ease: overshoot }}
-        className="mt-6 text-center font-display text-[48px] leading-[1.05] text-text-primary"
-      >
-        Didi Summer School
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35, duration: 0.45, ease: 'easeOut' }}
-        className="mt-3 text-center text-[17px] font-body font-normal text-text-primary/80 leading-relaxed"
-      >
-        cea mai frumoasă vară a copilului tău
-      </motion.p>
-
-      <motion.ul
-        initial="hidden"
-        animate="show"
-        variants={{
-          hidden: {},
-          show: {
-            transition: { delayChildren: 0.5, staggerChildren: 0.08 },
-          },
-        }}
-        className="mt-6 flex flex-wrap justify-center gap-2"
-      >
-        {HERO_DETAILS.map((detail) => (
-          <motion.li
-            key={detail.label}
-            variants={{
-              hidden: { opacity: 0, y: 12, scale: 0.95 },
-              show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: overshoot } },
-            }}
-            className="rounded-chip bg-white px-3 py-2 text-[14px] font-body font-bold text-text-primary shadow-press-chip"
-          >
-            <span className="mr-1.5" aria-hidden="true">{detail.icon}</span>
-            {detail.label}
-          </motion.li>
-        ))}
-      </motion.ul>
-
-      <motion.div
-        initial={{ opacity: 0, y: 16, scale: 0.94 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.8, duration: 0.5, ease: overshoot }}
-        className="mt-8 flex justify-center"
-      >
-        <Button
-          as="a"
-          href={waLink(WHATSAPP_MESSAGES.hero)}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="primary"
-          onClick={() => trackWhatsApp('hero')}
-          data-testid="cta-hero"
+      {/* Grass SVG */}
+      <div className="relative mt-8 w-full">
+        <svg
+          aria-hidden="true"
+          className="block w-full"
+          viewBox="0 0 500 70"
+          preserveAspectRatio="none"
+          height="70"
         >
-          Vreau detalii
-        </Button>
-      </motion.div>
+          <path
+            d="M0,45 Q80,18 170,36 Q260,54 340,26 Q420,2 500,30 L500,70 L0,70 Z"
+            fill="#BFDBFE"
+          />
+          <path
+            d="M0,56 Q70,40 155,52 Q240,64 320,44 Q400,24 500,50 L500,70 L0,70 Z"
+            fill="#DBEAFE"
+          />
+        </svg>
+      </div>
     </section>
   )
 }

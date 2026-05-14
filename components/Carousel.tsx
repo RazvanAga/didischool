@@ -70,10 +70,10 @@ export function Carousel<T>({
           <motion.div
             key={keyExtractor(item, i)}
             data-carousel-card
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.01 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="snap-center shrink-0"
             style={{ width: `${cardWidthPercent}%` }}
           >

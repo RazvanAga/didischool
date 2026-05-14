@@ -2,89 +2,184 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { SectionTitle } from './SectionTitle'
 import { ZI_TIPICA } from '@/lib/constants'
 
-const overshoot = [0.34, 1.56, 0.64, 1] as const
+const spring = [0.34, 1.56, 0.64, 1] as const
+
+const PALETTE = [
+  { accent: '#F59E0B', soft: '#FFFBEB' }, // 07:00 amber sunrise
+  { accent: '#EA580C', soft: '#FFF7ED' }, // 07:30 warm orange
+  { accent: '#65A30D', soft: '#F7FEE7' }, // 08:30 lime morning
+  { accent: '#059669', soft: '#ECFDF5' }, // 10:00 emerald
+  { accent: '#CA8A04', soft: '#FEFCE8' }, // 12:30 golden lunch
+  { accent: '#7C3AED', soft: '#F5F3FF' }, // 13:30 violet rest
+  { accent: '#2563EB', soft: '#EFF6FF' }, // 15:00 sky workshop
+  { accent: '#E11D48', soft: '#FFF1F2' }, // 16:00 rose play
+  { accent: '#F97316', soft: '#FFF7ED' }, // 18:00 sunset home
+]
 
 export function ZiTipicaSection() {
   return (
-    <section className="relative bg-cream pt-12 pb-16 px-5">
+    <section className="relative bg-[#D1FAE5] pt-12 pb-16 px-5 overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-0 right-0 w-56 h-56 rounded-full opacity-40"
+        style={{
+          background: 'radial-gradient(circle, #6EE7B7 0%, transparent 70%)',
+          transform: 'translate(35%, -40%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-12 left-0 w-40 h-40 rounded-full opacity-30"
+        style={{
+          background: 'radial-gradient(circle, #34D399 0%, transparent 70%)',
+          transform: 'translate(-40%, 0)',
+        }}
+      />
+
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="flex flex-col items-center gap-3"
       >
-        <SectionTitle
-          duck="/images/duck-avatars/duck-book.png"
-          duckAlt="Rățușcă cu cartea"
-          subtitle="2 grupe pe vârstă: mici (4-6 ani) și mari (7-12 ani). Atelierele și temele se adaptează per grup."
+        {/* Title */}
+        <h2
+          className="font-display font-extrabold text-center"
+          style={{ fontSize: '68px', color: '#064E3B', lineHeight: 1 }}
         >
           O zi la Didi
-        </SectionTitle>
+        </h2>
+
+        {/* Age group chips + ducks */}
+        <div className="flex items-center justify-center gap-2">
+          <motion.div
+            initial={{ x: -16, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: spring, delay: 0.1 }}
+            animate={{ y: [0, -6, 0] }}
+          >
+            <Image
+              src="/images/duck-avatars/duck.png"
+              alt=""
+              width={110}
+              height={110}
+              className="w-[110px] h-[110px] object-contain"
+              style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))' }}
+            />
+          </motion.div>
+
+          <div className="flex flex-col gap-2">
+            <div className="px-4 py-1.5 rounded-full" style={{ backgroundColor: '#FEF3C7' }}>
+              <span className="font-body font-bold text-[13.5px]" style={{ color: '#92400E' }}>
+                mici 4–6 ani
+              </span>
+            </div>
+            <div className="px-4 py-1.5 rounded-full" style={{ backgroundColor: '#DBEAFE' }}>
+              <span className="font-body font-bold text-[13.5px]" style={{ color: '#1E3A8A' }}>
+                mari 7–12 ani
+              </span>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ x: 16, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: spring, delay: 0.1 }}
+            animate={{ y: [0, -6, 0] }}
+          >
+            <Image
+              src="/images/duck-avatars/duck-girl.png"
+              alt=""
+              width={110}
+              height={110}
+              className="w-[110px] h-[110px] object-contain"
+              style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))' }}
+            />
+          </motion.div>
+        </div>
       </motion.div>
 
-      <motion.ol
+      <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.06 }}
         variants={{
           hidden: {},
-          show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+          show: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
         }}
-        className="relative mt-8 flex flex-col"
+        className="mt-10 flex flex-col gap-3"
       >
-        <div
-          aria-hidden="true"
-          className="absolute left-[27px] top-3 bottom-3 w-[2px] bg-brand-yellow/40 rounded-full"
-        />
-
-        {ZI_TIPICA.map((entry) => (
-          <motion.li
-            key={entry.time}
-            variants={{
-              hidden: { opacity: 0, y: 14 },
-              show: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.45, ease: overshoot },
-              },
-            }}
-            className="relative flex gap-4 py-3"
-          >
-            <div className="relative shrink-0 w-14 h-14 z-10">
-              <motion.div
-                initial={{ y: 10 }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.5, ease: overshoot }}
-                className="w-14 h-14 rounded-full bg-white shadow-warm-card flex items-center justify-center"
+        {ZI_TIPICA.map((entry, i) => {
+          const p = PALETTE[i] ?? PALETTE[0]
+          return (
+            <motion.div
+              key={entry.time}
+              variants={{
+                hidden: { opacity: 0, y: 20, scale: 0.96 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.45, ease: spring },
+                },
+              }}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.18 }}
+              className="flex rounded-2xl overflow-hidden"
+              style={{ boxShadow: '0 3px 14px rgba(0,0,0,0.09)' }}
+            >
+              {/* Left mascot panel */}
+              <div
+                className="w-[140px] shrink-0 flex flex-col items-center justify-center gap-2 py-5"
+                style={{ backgroundColor: p.accent }}
               >
                 <Image
                   src={entry.duck}
                   alt=""
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 object-contain"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                  style={{
+                    width: '120px',
+                    height: '120px',
+                    filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.20))',
+                  }}
                 />
-              </motion.div>
-            </div>
+                <span
+                  className="font-display font-extrabold text-white tabular-nums leading-none"
+                  style={{ fontSize: '19px' }}
+                >
+                  {entry.time}
+                </span>
+              </div>
 
-            <div className="flex-1 min-w-0 pt-1">
-              <div className="font-body font-extrabold text-[18px] text-coral leading-tight">
-                {entry.time}
+              {/* Right content panel */}
+              <div
+                className="flex-1 min-w-0 px-4 py-5 flex flex-col justify-center"
+                style={{ backgroundColor: p.soft }}
+              >
+                <div
+                  className="font-body font-extrabold text-[#1C1C1E] leading-snug"
+                  style={{ fontSize: '16.5px' }}
+                >
+                  {entry.title}
+                </div>
+                <p
+                  className="font-body font-normal text-[#636E72] leading-relaxed"
+                  style={{ fontSize: '13.5px', marginTop: '5px' }}
+                >
+                  {entry.description}
+                </p>
               </div>
-              <div className="font-body font-extrabold text-[17px] text-text-primary leading-snug mt-0.5">
-                {entry.title}
-              </div>
-              <p className="font-body font-normal text-[14.5px] text-text-secondary leading-relaxed mt-1">
-                {entry.description}
-              </p>
-            </div>
-          </motion.li>
-        ))}
-      </motion.ol>
+            </motion.div>
+          )
+        })}
+      </motion.div>
     </section>
   )
 }

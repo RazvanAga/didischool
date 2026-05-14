@@ -19,9 +19,11 @@ export function FAQAccordion({ items }: Props) {
         const panelId = `faq-panel-${i}`
         const headerId = `faq-header-${i}`
         return (
-          <li
+          <motion.li
             key={item.question}
-            className="bg-white rounded-card shadow-warm-card overflow-hidden"
+            animate={{ backgroundColor: open ? '#FFFBEB' : '#FFFFFF' }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="rounded-card shadow-warm-card overflow-hidden"
           >
             <button
               id={headerId}
@@ -35,15 +37,26 @@ export function FAQAccordion({ items }: Props) {
               <span className="font-body font-extrabold text-[16.5px] text-text-primary leading-snug">
                 {item.question}
               </span>
-              <motion.span
+              <motion.svg
                 aria-hidden="true"
                 animate={{ rotate: open ? 180 : 0 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="shrink-0 text-coral text-[18px] leading-none"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                className="shrink-0 text-coral"
               >
-                ▾
-              </motion.span>
+                <path
+                  d="M5 7.5L10 12.5L15 7.5"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
             </button>
+
             <AnimatePresence initial={false}>
               {open && (
                 <motion.div
@@ -64,7 +77,7 @@ export function FAQAccordion({ items }: Props) {
                 </motion.div>
               )}
             </AnimatePresence>
-          </li>
+          </motion.li>
         )
       })}
     </ul>

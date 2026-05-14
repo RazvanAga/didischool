@@ -17,7 +17,13 @@
       "Bash(pkill -f \"next dev\")",
       "Bash(xargs kill -9)",
       "PowerShell(Get-Process *)",
-      "PowerShell(Get-NetTCPConnection *)"
+      "PowerShell(Get-NetTCPConnection *)",
+      "Skill(update-config)",
+      "Bash(npx --yes @playwright/mcp@latest --version)",
+      "Bash(npx playwright *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Razvan\\\\Projects\\\\didischool\" -Recurse -Depth 3)",
+      "Bash(Select-Object FullName)",
+      "Bash(npx tsc *)"
     ]
   }
 }

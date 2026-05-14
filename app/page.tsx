@@ -14,13 +14,16 @@ export default function Home() {
     <>
       <main className="shell bg-cream min-h-screen">
         <Hero />
-        <WavyDivider topColor="#FFD700" bottomColor="#FFF8E7" />
         <SpatiuSection />
+        <WavyDivider topColor="#DBEAFE" bottomColor="#D1FAE5" height={50} />
         <ZiTipicaSection />
+        <WavyDivider topColor="#D1FAE5" bottomColor="#DBEAFE" height={50} />
         <IncludePretulSection />
+        <WavyDivider topColor="#DBEAFE" bottomColor="#FEF3C7" height={50} />
         <AteliereSection />
+        <WavyDivider topColor="#FEF3C7" bottomColor="#FFF8E7" height={50} />
         <FAQSection />
-        <WavyDivider topColor="#FFF8E7" bottomColor="#FFD700" />
+        <WavyDivider topColor="#FFF8E7" bottomColor="#FFD700" height={50} />
         <PreturiSection />
         <Footer />
       </main>

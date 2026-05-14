@@ -25,12 +25,48 @@ export const HERO_DETAILS = [
 ] as const
 
 export const SPATIU_PHOTOS = [
-  { src: '/images/photos/playground1.jpg', alt: 'Curte cu iarbă și porți de fotbal' },
-  { src: '/images/photos/playground2.jpg', alt: 'Trambulină în curte' },
-  { src: '/images/photos/playground3.jpg', alt: 'Spațiu de joacă' },
-  { src: '/images/photos/playground4.jpg', alt: 'Curte din alt unghi' },
-  { src: '/images/photos/treehouse.jpg', alt: 'Căsuța din copac' },
-  { src: '/images/photos/classroom1.jpg', alt: 'Sală de clasă interioară' },
+  {
+    src: '/images/photos/playground1.jpg',
+    alt: 'Curte cu iarbă și porți de fotbal',
+    duck: '/images/duck-avatars/duck-ball.png',
+    caption: '2000 mp de curte — fotbal cât vrei',
+  },
+  {
+    src: '/images/photos/playground2.jpg',
+    alt: 'Trambulină în curte',
+    duck: '/images/duck-avatars/duck.png',
+    caption: 'Trambulină în aer liber',
+  },
+  {
+    src: '/images/photos/playground3.jpg',
+    alt: 'Spațiu de joacă',
+    duck: '/images/duck-avatars/duck-curious.png',
+    caption: 'Loc de joacă liber, supravegheată',
+  },
+  {
+    src: '/images/photos/playground4.jpg',
+    alt: 'Curte din alt unghi',
+    duck: '/images/duck-avatars/duck-ping-pong.png',
+    caption: 'Curte amenajată cu iarbă adevărată',
+  },
+  {
+    src: '/images/photos/treehouse.jpg',
+    alt: 'Căsuța din copac',
+    duck: '/images/duck-avatars/duck-book.png',
+    caption: 'Căsuță în copac — ascunzătoarea preferată',
+  },
+  {
+    src: '/images/photos/classroom1.jpg',
+    alt: 'Sală de clasă interioară',
+    duck: '/images/duck-avatars/duck-paint.png',
+    caption: '2 săli interioare pentru ateliere și teme',
+  },
+  {
+    src: '/images/photos/classroom2.jpg',
+    alt: 'A doua sală de clasă',
+    duck: '/images/duck-avatars/duck-laptop.png',
+    caption: 'Spațiu dedicat programare și proiecte tech',
+  },
 ] as const
 
 export const SPATIU_FEATURES = [
@@ -137,21 +173,39 @@ export const PRET_MASA = 20
 export const ATELIERE = [
   {
     name: 'Programare',
-    price: 75,
+    price: 50,
     description: 'Scratch, Python, Minecraft Hour of Code.',
     duck: '/images/duck-avatars/duck-laptop.png',
   },
   {
     name: 'Engleză',
-    price: 50,
+    price: 20,
     description: 'Conversație și joc tematic.',
     duck: '/images/duck-avatars/duck-globe.png',
   },
   {
     name: 'Artă',
-    price: 50,
+    price: 20,
     description: 'Pictură, modelaj, colaj.',
     duck: '/images/duck-avatars/duck-paint.png',
+  },
+  {
+    name: 'Șah',
+    price: 50,
+    description: 'Gândire strategică prin joc.',
+    duck: '/images/duck-avatars/duck.png',
+  },
+  {
+    name: 'Robotică',
+    price: 60,
+    description: 'Construcție și programare de roboței.',
+    duck: '/images/duck-avatars/duck.png',
+  },
+  {
+    name: 'Fizică și Experimente',
+    price: 50,
+    description: 'Experimente interactive despre lumea din jur.',
+    duck: '/images/duck-avatars/duck.png',
   },
 ] as const
 

@@ -43,17 +43,17 @@ function InstagramIcon({ size = 22 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-brand-yellow pt-10 pb-32 px-5">
+    <footer className="bg-section-dark pt-10 pb-32 px-5">
       <div className="flex flex-col items-center gap-5 text-center">
         <Image
           src="/images/logo.png"
           alt="Didi Afterschool"
           width={56}
           height={56}
-          className="h-14 w-14 object-contain"
+          className="h-14 w-14 object-contain opacity-90"
         />
 
-        <p className="font-body font-bold text-[15px] text-text-primary">
+        <p className="font-body font-bold text-[15px] text-white/80">
           {ADDRESS}
         </p>
 
@@ -75,7 +75,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-text-primary shadow-press-chip active:translate-y-[2px] transition-transform"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white active:translate-y-[2px] transition-transform"
             >
               <FacebookIcon size={22} />
             </a>
@@ -86,14 +86,14 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-text-primary shadow-press-chip active:translate-y-[2px] transition-transform"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white active:translate-y-[2px] transition-transform"
             >
               <InstagramIcon size={22} />
             </a>
           </li>
         </ul>
 
-        <p className="mt-2 font-body text-[12.5px] text-text-secondary">
+        <p className="mt-2 font-body text-[12.5px] text-white/40">
           © 2026 Didi Afterschool
         </p>
       </div>

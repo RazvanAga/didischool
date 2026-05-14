@@ -16,7 +16,7 @@ type Props = {
 export function SectionTitle({
   duck,
   duckAlt = '',
-  duckSize = 56,
+  duckSize = 72,
   children,
   subtitle,
   className = '',

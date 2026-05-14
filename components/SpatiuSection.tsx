@@ -1,77 +1,58 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { SectionTitle } from './SectionTitle'
-import { SPATIU_FEATURES, SPATIU_PHOTOS } from '@/lib/constants'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useRef, useState, useCallback } from 'react'
+import { SPATIU_PHOTOS } from '@/lib/constants'
+
+const spring = [0.34, 1.56, 0.64, 1] as const
 
 export function SpatiuSection() {
-  return (
-    <section className="relative bg-cream pt-12 pb-16 overflow-hidden">
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-4 right-4 opacity-40"
-        animate={{ rotate: [-3, 3, -3] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <Image
-          src="/images/duck-avatars/duck-ping-pong.png"
-          alt=""
-          width={56}
-          height={56}
-          className="h-14 w-14 object-contain"
-        />
-      </motion.div>
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-6 left-3 opacity-30"
-        animate={{ rotate: [3, -3, 3] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <Image
-          src="/images/duck-avatars/duck-paint.png"
-          alt=""
-          width={48}
-          height={48}
-          className="h-12 w-12 object-contain"
-        />
-      </motion.div>
+  const [activeIndex, setActiveIndex] = useState(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const cardWidth = useRef<number>(0)
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
+  const onScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const w = cardWidth.current || el.querySelector('div')?.offsetWidth || 1
+    cardWidth.current = w
+    const idx = Math.round(el.scrollLeft / (w + 12))
+    setActiveIndex(Math.max(0, Math.min(idx, SPATIU_PHOTOS.length - 1)))
+  }, [])
+
+  const active = SPATIU_PHOTOS[activeIndex]
+
+  return (
+    <section className="relative bg-section-blue pt-12 pb-16 overflow-hidden">
+      {/* Title */}
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="px-5"
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="text-center font-display font-extrabold px-5 mb-6"
+        style={{ fontSize: '68px', color: '#1E3A8A', lineHeight: 1 }}
       >
-        <SectionTitle
-          duck="/images/duck-avatars/duck-ball.png"
-          duckAlt="Rățușcă cu mingea"
-        >
-          2000 mp de curte. 2 săli interioare. Loc real pentru joacă.
-        </SectionTitle>
-      </motion.div>
+        La noi
+      </motion.h2>
 
+      {/* Photo carousel */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.05 }}
-        className="mt-8"
+        transition={{ duration: 0.55, ease: 'easeOut' }}
       >
         <div
-          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none]"
-          style={{ scrollbarWidth: 'none' }}
+          ref={scrollRef}
+          onScroll={onScroll}
+          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          <style>{`.no-scrollbar::-webkit-scrollbar{display:none}`}</style>
-          {SPATIU_PHOTOS.map((photo) => (
-            <motion.div
+          {SPATIU_PHOTOS.map((photo, i) => (
+            <div
               key={photo.src}
-              initial={{ scale: 0.95, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.45, ease: 'easeOut' }}
-              className="relative snap-center shrink-0 w-[72%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-warm-card bg-white"
+              className="relative snap-center shrink-0 w-[72%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-card-blue bg-white"
             >
               <Image
                 src={photo.src}
@@ -79,44 +60,88 @@ export function SpatiuSection() {
                 fill
                 sizes="(max-width: 500px) 78vw, 400px"
                 className="object-cover"
+                priority={i === 0}
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </motion.div>
 
-      <motion.ul
-        initial="hidden"
-        whileInView="show"
+      {/* Duck narrator */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        variants={{
-          hidden: {},
-          show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
-        }}
-        className="mt-8 px-5 flex flex-col gap-3"
+        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+        className="mt-5 px-5 flex items-center gap-4"
       >
-        {SPATIU_FEATURES.map((feature) => (
-          <motion.li
-            key={feature.label}
-            variants={{
-              hidden: { opacity: 0, x: -12 },
-              show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+        {/* Duck — 1/3 width, pops on change */}
+        <div className="w-1/2 shrink-0 flex justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex + '-duck'}
+              initial={{ scale: 0.65, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.38, ease: spring }}
+            >
+              <Image
+                src={active.duck}
+                alt=""
+                width={160}
+                height={160}
+                className="w-full h-auto object-contain"
+                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Speech bubble — 2/3 width */}
+        <div className="relative flex-1 min-w-0">
+          {/* Bubble tail pointing left toward duck */}
+          <div
+            className="absolute -left-[10px] top-1/2 -translate-y-1/2 w-0 h-0"
+            style={{
+              borderTop: '8px solid transparent',
+              borderBottom: '8px solid transparent',
+              borderRight: '11px solid white',
             }}
-            className="flex items-center gap-3"
+          />
+          <div
+            className="rounded-2xl bg-white px-4 py-3"
+            style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.09)' }}
           >
-            <Image
-              src={feature.duck}
-              alt=""
-              width={32}
-              height={32}
-              className="h-8 w-8 object-contain shrink-0"
-            />
-            <span className="text-[17px] font-body font-bold text-text-primary">
-              {feature.label}
-            </span>
-          </motion.li>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={activeIndex + '-caption'}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+                className="font-body font-bold text-[15px] text-text-primary leading-snug"
+              >
+                {active.caption}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Dot indicators */}
+      <div className="mt-4 flex justify-center gap-[7px]">
+        {SPATIU_PHOTOS.map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              width: i === activeIndex ? 20 : 7,
+              backgroundColor: i === activeIndex ? '#2563EB' : '#BFDBFE',
+            }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="h-[7px] rounded-full"
+          />
         ))}
-      </motion.ul>
+      </div>
     </section>
   )
 }

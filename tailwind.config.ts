@@ -16,6 +16,9 @@ const config: Config = {
         'coral-deep': '#D04C4C',
         'text-primary': '#2D3436',
         'text-secondary': '#636E72',
+        'section-green': '#D1FAE5',
+        'section-blue': '#DBEAFE',
+        'section-dark': '#1C1C1E',
       },
       fontFamily: {
         display: ['var(--font-baloo)', 'system-ui', 'sans-serif'],
@@ -30,6 +33,8 @@ const config: Config = {
         'press-chip': '0 2px 0 0 #E5E5E5',
         'press-chip-down': '0 0 0 0 #E5E5E5',
         'sticky-top': '0 -4px 12px rgba(0, 0, 0, 0.08)',
+        'card-blue': '0 4px 0 0 rgba(59,130,246,0.25)',
+        'card-green': '0 4px 0 0 rgba(16,185,129,0.25)',
       },
       borderRadius: {
         card: '20px',
