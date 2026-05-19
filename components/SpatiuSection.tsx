@@ -52,14 +52,25 @@ export function SpatiuSection() {
           {SPATIU_PHOTOS.map((photo, i) => (
             <div
               key={photo.src}
-              className="relative snap-center shrink-0 w-[72%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-card-blue bg-white"
+              className="relative snap-center shrink-0 w-[72%] aspect-[4/3] rounded-[16px] overflow-hidden shadow-card-blue bg-black"
             >
+              {'portrait' in photo && photo.portrait && (
+                <Image
+                  src={photo.src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 500px) 78vw, 400px"
+                  className="object-cover scale-110 opacity-60"
+                  style={{ filter: 'blur(18px)' }}
+                  aria-hidden
+                />
+              )}
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 500px) 78vw, 400px"
-                className="object-cover"
+                className={'portrait' in photo && photo.portrait ? 'object-contain' : 'object-cover'}
                 priority={i === 0}
               />
             </div>

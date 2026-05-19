@@ -14,6 +14,7 @@ type CarouselProps<T> = {
   renderItem: (item: T, index: number) => ReactNode
   keyExtractor: (item: T, index: number) => string
   cardWidthPercent?: number
+  cardAspectRatio?: string
   ariaLabel?: string
 }
 
@@ -22,6 +23,7 @@ export function Carousel<T>({
   renderItem,
   keyExtractor,
   cardWidthPercent = 72,
+  cardAspectRatio,
   ariaLabel,
 }: CarouselProps<T>) {
   const trackRef = useRef<HTMLDivElement>(null)
@@ -75,7 +77,7 @@ export function Carousel<T>({
             viewport={{ once: true, amount: 0.01 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="snap-center shrink-0"
-            style={{ width: `${cardWidthPercent}%` }}
+            style={{ width: `${cardWidthPercent}%`, aspectRatio: cardAspectRatio }}
           >
             {renderItem(item, i)}
           </motion.div>

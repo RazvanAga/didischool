@@ -42,25 +42,28 @@ export function AteliereSection() {
           items={ATELIERE}
           keyExtractor={(item) => item.name}
           cardWidthPercent={72}
+          cardAspectRatio="1/1"
           renderItem={(item, i) => {
             const p = PALETTE[i % PALETTE.length]
             return (
               <div
-                className="h-full flex flex-col items-center text-center gap-3 rounded-card p-5"
+                className="h-full flex flex-col items-center text-center gap-2 rounded-card p-4 overflow-hidden"
                 style={{
                   backgroundColor: p.soft,
                   border: `2px solid ${p.border}`,
                   boxShadow: `0 4px 0 ${p.shadow}`,
                 }}
               >
-                <Image
-                  src={item.duck}
-                  alt=""
-                  width={240}
-                  height={240}
-                  className="w-full max-w-[240px] h-auto object-contain"
-                  style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
-                />
+                <div className="flex-1 min-h-0 flex items-center justify-center w-full">
+                  <Image
+                    src={item.duck}
+                    alt=""
+                    width={200}
+                    height={200}
+                    className="h-full w-auto max-w-full object-contain"
+                    style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
+                  />
+                </div>
                 <h3 className="font-display text-[22px] leading-tight text-text-primary">
                   {item.name}
                 </h3>

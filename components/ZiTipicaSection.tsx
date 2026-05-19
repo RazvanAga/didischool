@@ -53,55 +53,6 @@ export function ZiTipicaSection() {
           O zi la Didi
         </h2>
 
-        {/* Age group chips + ducks */}
-        <div className="flex items-center justify-center gap-2">
-          <motion.div
-            initial={{ x: -16, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: spring, delay: 0.1 }}
-            animate={{ y: [0, -6, 0] }}
-          >
-            <Image
-              src="/images/duck-avatars/duck.png"
-              alt=""
-              width={110}
-              height={110}
-              className="w-[110px] h-[110px] object-contain"
-              style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))' }}
-            />
-          </motion.div>
-
-          <div className="flex flex-col gap-2">
-            <div className="px-4 py-1.5 rounded-full" style={{ backgroundColor: '#FEF3C7' }}>
-              <span className="font-body font-bold text-[13.5px]" style={{ color: '#92400E' }}>
-                mici 4–6 ani
-              </span>
-            </div>
-            <div className="px-4 py-1.5 rounded-full" style={{ backgroundColor: '#DBEAFE' }}>
-              <span className="font-body font-bold text-[13.5px]" style={{ color: '#1E3A8A' }}>
-                mari 7–12 ani
-              </span>
-            </div>
-          </div>
-
-          <motion.div
-            initial={{ x: 16, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: spring, delay: 0.1 }}
-            animate={{ y: [0, -6, 0] }}
-          >
-            <Image
-              src="/images/duck-avatars/duck-girl.png"
-              alt=""
-              width={110}
-              height={110}
-              className="w-[110px] h-[110px] object-contain"
-              style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.15))' }}
-            />
-          </motion.div>
-        </div>
       </motion.div>
 
       <motion.div

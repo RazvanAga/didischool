@@ -25,34 +25,79 @@ export const HERO_DETAILS = [
 
 export const SPATIU_PHOTOS = [
   {
-    src: '/images/photos/playground1.jpg',
-    alt: 'Curte cu iarbă și porți de fotbal',
+    src: '/images/photos/football.JPG',
+    alt: 'Fotbal în curte',
     duck: '/images/duck-avatars/duck-ball.png',
     caption: '2000 mp de curte — fotbal cât vrei',
   },
   {
-    src: '/images/photos/playground2.jpg',
-    alt: 'Trambulină în curte',
-    duck: '/images/duck-avatars/duck.png',
-    caption: 'Trambulină în aer liber',
+    src: '/images/photos/reading.JPG',
+    alt: 'Citit în liniște',
+    duck: '/images/duck-avatars/duck-book.png',
+    caption: 'Timp de citit — liniște și imaginație',
   },
   {
-    src: '/images/photos/playground3.jpg',
-    alt: 'Spațiu de joacă',
-    duck: '/images/duck-avatars/duck-curious.png',
-    caption: 'Loc de joacă liber, supravegheată',
-  },
-  {
-    src: '/images/photos/playground4.jpg',
-    alt: 'Curte din alt unghi',
+    src: '/images/photos/table-tennis.JPG',
+    alt: 'Masă de ping-pong',
     duck: '/images/duck-avatars/duck-ping-pong.png',
-    caption: 'Curte amenajată cu iarbă adevărată',
+    caption: 'Ping-pong în aer liber',
   },
   {
     src: '/images/photos/treehouse.jpg',
     alt: 'Căsuța din copac',
     duck: '/images/duck-avatars/duck-book.png',
     caption: 'Căsuță în copac — ascunzătoarea preferată',
+    portrait: true,
+  },
+  {
+    src: '/images/photos/trampoline.JPG',
+    alt: 'Trambulină în curte',
+    duck: '/images/duck-avatars/duck.png',
+    caption: 'Trambulină în aer liber',
+    portrait: true,
+  },
+  {
+    src: '/images/photos/hammocks.JPG',
+    alt: 'Hamace în curte',
+    duck: '/images/duck-avatars/duck-curious.png',
+    caption: 'Hamace pentru relaxat după activități',
+  },
+  {
+    src: '/images/photos/basketball.JPG',
+    alt: 'Baschet în curte',
+    duck: '/images/duck-avatars/duck-ball.png',
+    caption: 'Baschet în curte',
+    portrait: true,
+  },
+  {
+    src: '/images/photos/scooters.JPG',
+    alt: 'Trotinete în curte',
+    duck: '/images/duck-avatars/duck-car.png',
+    caption: 'Trotinete — mișcare liberă în curte',
+  },
+  {
+    src: '/images/photos/computers.JPG',
+    alt: 'Calculatoare și programare',
+    duck: '/images/duck-avatars/duck-laptop.png',
+    caption: 'Calculatoare și programare',
+  },
+  {
+    src: '/images/photos/chess.JPG',
+    alt: 'Șah',
+    duck: '/images/duck-avatars/duck-chess.png',
+    caption: 'Șah — gândire strategică prin joc',
+  },
+  {
+    src: '/images/photos/lunch.JPG',
+    alt: 'Prânz',
+    duck: '/images/duck-avatars/duck-food.png',
+    caption: 'Prânz coordonat de Didi',
+  },
+  {
+    src: '/images/photos/homework.JPG',
+    alt: 'Teme de vacanță',
+    duck: '/images/duck-avatars/duck-book.png',
+    caption: 'Teme de vacanță cu cadre didactice',
   },
   {
     src: '/images/photos/classroom1.jpg',
@@ -79,8 +124,8 @@ export const SPATIU_FEATURES = [
 export const ZI_TIPICA = [
   {
     time: '07:00',
-    title: 'Sosire (treptat)',
-    description: 'Părintele lasă copilul în drumul spre serviciu.',
+    title: 'Sosire treptată',
+    description: 'Fiecare părinte lasă copilul în drumul spre serviciu.',
     duck: '/images/duck-avatars/duck-car.png',
   },
   {
@@ -91,14 +136,14 @@ export const ZI_TIPICA = [
   },
   {
     time: '08:30',
-    title: 'Teme de vacanță / activități pre-școlare',
-    description: 'Cei mari cu Ana și Diana, cei mici cu activități adaptate.',
+    title: 'Teme de vacanță',
+    description: 'Cele două cadre didactice acreditate fac temele împreună cu fiecare copil în parte.',
     duck: '/images/duck-avatars/duck-book.png',
   },
   {
     time: '10:00',
-    title: 'Pauză + joacă în curte',
-    description: 'Fotbal, trambulină, căsuță în copac.',
+    title: 'Joacă liberă în curte',
+    description: 'Fotbal, ping-pong, trambulină, căsuță în copac, trotinete, leagăne.',
     duck: '/images/duck-avatars/duck-ball.png',
   },
   {
@@ -109,14 +154,14 @@ export const ZI_TIPICA = [
   },
   {
     time: '13:30',
-    title: 'Odihnă / citit / activități calme',
-    description: 'Reset după prânz.',
+    title: 'Activități calme după masă',
+    description: 'Citit, pictat, board games, cântat, jocuri de rol',
     duck: '/images/duck-avatars/duck-book.png',
   },
   {
     time: '15:00',
-    title: 'Atelier (1h)',
-    description: 'Specialitate sau joacă ghidată — paralel mai multe ateliere pe săli.',
+    title: 'Ateliere',
+    description: 'Instructori profesioniști pentru fiecare atelier în parte',
     duck: '/images/duck-avatars/duck-paint.png',
   },
   {
@@ -127,7 +172,7 @@ export const ZI_TIPICA = [
   },
   {
     time: '18:00',
-    title: 'Plecare (treptat)',
+    title: 'Plecare treptată',
     description: 'Părinții iau copiii după serviciu.',
     duck: '/images/duck-avatars/duck-car.png',
     reversed: true,
@@ -186,7 +231,7 @@ export const ATELIERE = [
   {
     name: 'Fizică și Experimente',
     price: 50,
-    description: 'Experimente interactive despre lumea din jur.',
+    description: 'Experimente interactive.',
     duck: '/images/duck-avatars/duck-experiments.png',
   },
   {
