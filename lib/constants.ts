@@ -33,7 +33,7 @@ export const SPATIU_PHOTOS = [
   {
     src: '/images/photos/reading.JPG',
     alt: 'Citit în liniște',
-    duck: '/images/duck-avatars/duck-book.png',
+    duck: '/images/duck-avatars/duck-read-outside.png',
     caption: 'Timp de citit — liniște și imaginație',
   },
   {
@@ -45,27 +45,27 @@ export const SPATIU_PHOTOS = [
   {
     src: '/images/photos/treehouse.jpg',
     alt: 'Căsuța din copac',
-    duck: '/images/duck-avatars/duck-book.png',
+    duck: '/images/duck-avatars/duck-treehouse.png',
     caption: 'Căsuță în copac — ascunzătoarea preferată',
     portrait: true,
   },
   {
     src: '/images/photos/trampoline.JPG',
     alt: 'Trambulină în curte',
-    duck: '/images/duck-avatars/duck.png',
+    duck: '/images/duck-avatars/duck-trampoline.png',
     caption: 'Trambulină în aer liber',
     portrait: true,
   },
   {
     src: '/images/photos/hammocks.JPG',
     alt: 'Hamace în curte',
-    duck: '/images/duck-avatars/duck-curious.png',
+    duck: '/images/duck-avatars/duck-hammock.png',
     caption: 'Hamace pentru relaxat după activități',
   },
   {
     src: '/images/photos/basketball.JPG',
     alt: 'Baschet în curte',
-    duck: '/images/duck-avatars/duck-ball.png',
+    duck: '/images/duck-avatars/duck-basketball.png',
     caption: 'Baschet în curte',
     portrait: true,
   },
@@ -115,8 +115,8 @@ export const SPATIU_PHOTOS = [
 
 export const SPATIU_FEATURES = [
   { label: 'Fotbal', duck: '/images/duck-avatars/duck-ball.png' },
-  { label: 'Trambulină', duck: '/images/duck-avatars/duck.png' },
-  { label: 'Căsuță în copac', duck: '/images/duck-avatars/duck-book.png' },
+  { label: 'Trambulină', duck: '/images/duck-avatars/duck-trampoline.png' },
+  { label: 'Căsuță în copac', duck: '/images/duck-avatars/duck-treehouse.png' },
   { label: 'Masă de ping-pong', duck: '/images/duck-avatars/duck-ping-pong.png' },
   { label: '2 săli interioare', duck: '/images/duck-avatars/duck-paint.png' },
 ] as const
@@ -129,9 +129,9 @@ export const ZI_TIPICA = [
     duck: '/images/duck-avatars/duck-car.png',
   },
   {
-    time: '08:80',
+    time: '08:00',
     title: 'Mic dejun',
-    description: 'Fiecare copil mananca pachetelul luat de acasa',
+    description: 'Fiecare copil mănâncă pachețelul luat de acasă.',
     duck: '/images/duck-avatars/duck-food.png',
   },
   {
@@ -143,20 +143,20 @@ export const ZI_TIPICA = [
   {
     time: '10:30',
     title: 'Joacă liberă în curte',
-    description: 'Fotbal, ping-pong, trambulină, căsuță în copac, piscina, trotinete, leagăne.',
+    description: 'Fotbal, ping-pong, trambulină, căsuță în copac, piscină, trotinete, leagăne.',
     duck: '/images/duck-avatars/duck-ball.png',
   },
   {
     time: '12:30',
     title: 'Prânz',
-    description: 'Comandat de la firma de catering pentru fiecare copil care alege aceasta optiune, intermediat de Didi.',
+    description: 'Comandat de la firma de catering pentru fiecare copil care alege această opțiune, intermediat de Didi.',
     duck: '/images/duck-avatars/duck-food.png',
   },
   {
     time: '13:30',
     title: 'Activități calme după masă',
     description: 'Citit, pictat, board games, cântat, jocuri de rol',
-    duck: '/images/duck-avatars/duck-book.png',
+    duck: '/images/duck-avatars/duck-read-outside.png',
   },
   {
     time: '15:00',
@@ -186,29 +186,24 @@ export const INCLUDE_PRETUL = [
     duck: '/images/duck-avatars/duck.png',
   },
   {
-    title: 'Cadre didactice acreditate',
-    description: 'Pentru teme de vacanță și activități structurate.',
+    title: 'Personal acreditat',
+    description: 'Cadre didactice acreditate pentru teme de vacanță. Instructori cu formare universitară de specialitate pentru fiecare atelier opțional.',
     duck: '/images/duck-avatars/duck-book.png',
   },
   {
     title: 'Curte spațioasă',
-    description: 'Fotbal, trambulină, căsuță în copac, ping-pong.',
+    description: 'Căsuță în copac, trambulină, ping-pong, piscină, trotinete, hamace, fotbal, baschet, leagăne.',
     duck: '/images/duck-avatars/duck-ball.png',
   },
   {
-    title: '2 săli interioare',
-    description: 'Una mică, una mare — pentru activități pe grupe de vârstă.',
+    title: 'Două săli interioare',
+    description: 'Săli unde se desfășoară temele de vacanță și atelierele.',
     duck: '/images/duck-avatars/duck-paint.png',
   },
   {
     title: 'Coordonare mic dejun și prânz',
     description: 'Comanda către furnizori, nu costul mâncării.',
     duck: '/images/duck-avatars/duck-food.png',
-  },
-  {
-    title: '2 grupe pe vârstă',
-    description: 'Mici (4-6 ani) și mari (7-12 ani) — activități adaptate.',
-    duck: '/images/duck-avatars/duck-girl.png',
   },
 ] as const
 
@@ -273,7 +268,7 @@ export const FAQ = [
   {
     question: 'Ce vârste acceptați vara?',
     answer:
-      'De la 4 la 12 ani. Avem 2 grupe: mici (4–6 ani) și mari (7–12 ani). Activitățile și temele se adaptează per grupă.',
+      'De la 4 la 12 ani.',
   },
   {
     question: 'Ce trebuie să aducă copilul cu el?',

@@ -172,7 +172,7 @@ export function PreturiSection() {
               strokeLinejoin="round"
             />
           </svg>
-          Ce este inclus
+          Vezi mai sus ce include prețul de bază
         </a>
       </motion.div>
 
@@ -185,7 +185,7 @@ export function PreturiSection() {
         className="mt-8"
       >
         <p className="font-body font-extrabold text-[13px] uppercase tracking-wider text-text-primary/50 mb-3 text-center">
-          Ce vă interesează?
+          Pachete extra
         </p>
 
         {/* Masă */}
