@@ -94,22 +94,16 @@ export const SPATIU_PHOTOS = [
     caption: 'Prânz coordonat de Didi',
   },
   {
-    src: '/images/photos/homework.JPG',
-    alt: 'Teme de vacanță',
+    src: '/images/photos/hw1.JPG',
+    alt: 'Teme cu cadre didactice',
     duck: '/images/duck-avatars/duck-book.png',
-    caption: 'Teme de vacanță cu cadre didactice',
+    caption: 'Facem temele cu cadre didactice acreditate',
   },
   {
-    src: '/images/photos/classroom1.jpg',
-    alt: 'Sală de clasă interioară',
-    duck: '/images/duck-avatars/duck-paint.png',
-    caption: '2 săli interioare pentru ateliere și teme',
-  },
-  {
-    src: '/images/photos/classroom2.jpg',
-    alt: 'A doua sală de clasă',
-    duck: '/images/duck-avatars/duck-laptop.png',
-    caption: 'Spațiu dedicat programare și proiecte tech',
+    src: '/images/photos/hw2.JPG',
+    alt: 'Teme cu cadre didactice',
+    duck: '/images/duck-avatars/duck-book.png',
+    caption: 'Facem temele cu cadre didactice acreditate',
   },
 ] as const
 
