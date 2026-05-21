@@ -28,7 +28,6 @@ export function Carousel<T>({
 }: CarouselProps<T>) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-
   const recompute = useCallback(() => {
     const el = trackRef.current
     if (!el) return
@@ -59,12 +58,24 @@ export function Carousel<T>({
     }
   }, [recompute])
 
+  const scrollTo = useCallback((dir: -1 | 1) => {
+    const el = trackRef.current
+    if (!el) return
+    const cards = Array.from(el.querySelectorAll<HTMLElement>('[data-carousel-card]'))
+    const next = Math.max(0, Math.min(activeIndex + dir, cards.length - 1))
+    const card = cards[next]
+    if (!card) return
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2
+    el.scrollTo({ left: cardCenter - el.clientWidth / 2, behavior: 'smooth' })
+  }, [activeIndex])
+
   return (
     <div className="w-full" role="region" aria-label={ariaLabel}>
+      <div className="relative">
       <div
         ref={trackRef}
         data-carousel-track
-        className="flex gap-4 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [touch-action:pan-x]"
+        className="flex gap-4 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [touch-action:pan-both]"
         style={{ scrollbarWidth: 'none' }}
       >
         <style>{`[data-carousel-track]::-webkit-scrollbar{display:none}`}</style>
@@ -82,6 +93,29 @@ export function Carousel<T>({
             {renderItem(item, i)}
           </motion.div>
         ))}
+      </div>
+
+      {/* Nav buttons — visible only on non-touch devices */}
+      <button
+        onClick={() => scrollTo(-1)}
+        disabled={activeIndex === 0}
+        aria-label="Înapoi"
+        className="hidden md:flex absolute left-1 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow-md text-text-primary disabled:opacity-30 transition-opacity"
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+          <path d="M11 14L6 9L11 4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
+      <button
+        onClick={() => scrollTo(1)}
+        disabled={activeIndex === items.length - 1}
+        aria-label="Înainte"
+        className="hidden md:flex absolute right-1 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow-md text-text-primary disabled:opacity-30 transition-opacity"
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+          <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button>
       </div>
 
       <div

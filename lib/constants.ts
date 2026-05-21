@@ -10,8 +10,8 @@ export function waLink(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
-export const FACEBOOK_URL = 'https://www.facebook.com/didiafterschool'
-export const INSTAGRAM_URL = FACEBOOK_URL
+export const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=100094616035336'
+export const INSTAGRAM_URL = 'https://www.instagram.com/didischool.ro/'
 
 export const ADDRESS = 'Giroc, Timiș'
 

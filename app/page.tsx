@@ -12,7 +12,7 @@ import { ZiTipicaSection } from '@/components/ZiTipicaSection'
 export default function Home() {
   return (
     <>
-      <main className="shell bg-cream min-h-screen">
+      <main className="bg-cream min-h-screen">
         <Hero />
         <SpatiuSection />
         <WavyDivider topColor="#DBEAFE" bottomColor="#D1FAE5" height={50} />

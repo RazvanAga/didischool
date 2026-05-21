@@ -35,7 +35,7 @@ export function Hero() {
       ))}
 
       {/* Content */}
-      <div className="relative z-10 px-5">
+      <div className="relative z-10 px-5 shell">
 
         {/* Title */}
         <motion.h1

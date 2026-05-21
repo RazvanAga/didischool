@@ -7,7 +7,8 @@ const spring = [0.34, 1.56, 0.64, 1] as const
 
 export function IncludePretulSection() {
   return (
-    <section id="include-pretul" className="relative bg-section-blue pt-12 pb-16 px-5">
+    <section id="include-pretul" className="relative bg-section-blue pt-12 pb-16">
+      <div className="shell px-5">
       {/* Title pill */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -76,6 +77,7 @@ export function IncludePretulSection() {
       <p className="mt-8 text-center text-[13.5px] text-text-secondary font-body leading-relaxed">
         Atelierele de specialitate se plătesc separat — vezi mai sus.
       </p>
+      </div>
     </section>
   )
 }

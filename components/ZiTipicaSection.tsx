@@ -20,7 +20,7 @@ const PALETTE = [
 
 export function ZiTipicaSection() {
   return (
-    <section className="relative bg-[#D1FAE5] pt-12 pb-16 px-5 overflow-hidden">
+    <section className="relative bg-[#D1FAE5] pt-12 pb-16 overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 right-0 w-56 h-56 rounded-full opacity-40"
@@ -38,6 +38,7 @@ export function ZiTipicaSection() {
         }}
       />
 
+      <div className="shell px-5">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -132,6 +133,7 @@ export function ZiTipicaSection() {
           )
         })}
       </motion.div>
+      </div>
     </section>
   )
 }

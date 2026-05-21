@@ -126,8 +126,8 @@ export function PreturiSection() {
   }, [message])
 
   return (
-    <section className="relative bg-brand-yellow pt-12 pb-20 px-5 overflow-hidden">
-
+    <section className="relative bg-brand-yellow pt-12 pb-20 overflow-hidden">
+      <div className="shell px-5">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
@@ -273,6 +273,7 @@ export function PreturiSection() {
           Rezervă un loc
         </Button>
       </motion.div>
+      </div>
     </section>
   )
 }

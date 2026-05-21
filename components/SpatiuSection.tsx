@@ -11,7 +11,6 @@ export function SpatiuSection() {
   const [activeIndex, setActiveIndex] = useState(0)
   const scrollRef = useRef<HTMLDivElement>(null)
   const cardWidth = useRef<number>(0)
-
   const onScroll = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
@@ -21,10 +20,20 @@ export function SpatiuSection() {
     setActiveIndex(Math.max(0, Math.min(idx, SPATIU_PHOTOS.length - 1)))
   }, [])
 
+  const scrollToIndex = useCallback((idx: number) => {
+    const el = scrollRef.current
+    if (!el) return
+    const cards = Array.from(el.querySelectorAll<HTMLElement>(':scope > div'))
+    const card = cards[idx]
+    if (!card) return
+    el.scrollTo({ left: card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2, behavior: 'smooth' })
+  }, [])
+
   const active = SPATIU_PHOTOS[activeIndex]
 
   return (
     <section className="relative bg-section-blue pt-12 pb-16 overflow-hidden">
+      <div className="shell">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -43,11 +52,12 @@ export function SpatiuSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.55, ease: 'easeOut' }}
+        className="relative"
       >
         <div
           ref={scrollRef}
           onScroll={onScroll}
-          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [touch-action:pan-x]"
+          className="flex gap-3 overflow-x-auto px-5 pb-3 snap-x snap-mandatory [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [touch-action:pan-both]"
         >
           {SPATIU_PHOTOS.map((photo, i) => (
             <div
@@ -76,6 +86,28 @@ export function SpatiuSection() {
             </div>
           ))}
         </div>
+
+        {/* Nav buttons — visible only on non-touch devices */}
+        <button
+          onClick={() => scrollToIndex(activeIndex - 1)}
+          disabled={activeIndex === 0}
+          aria-label="Înapoi"
+          className="hidden md:flex absolute left-1 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow-md text-text-primary disabled:opacity-30 transition-opacity"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+            <path d="M11 14L6 9L11 4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <button
+          onClick={() => scrollToIndex(activeIndex + 1)}
+          disabled={activeIndex === SPATIU_PHOTOS.length - 1}
+          aria-label="Înainte"
+          className="hidden md:flex absolute right-1 top-1/2 -translate-y-1/2 z-10 w-9 h-9 items-center justify-center rounded-full bg-white shadow-md text-text-primary disabled:opacity-30 transition-opacity"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+            <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </motion.div>
 
       {/* Duck narrator */}
@@ -152,6 +184,7 @@ export function SpatiuSection() {
             className="h-[7px] rounded-full"
           />
         ))}
+      </div>
       </div>
     </section>
   )

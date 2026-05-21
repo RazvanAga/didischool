@@ -8,6 +8,7 @@ import { FAQ } from '@/lib/constants'
 export function FAQSection() {
   return (
     <section className="relative bg-cream pt-12 pb-16">
+      <div className="shell">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -46,6 +47,7 @@ export function FAQSection() {
       >
         <FAQAccordion items={FAQ} />
       </motion.div>
+      </div>
     </section>
   )
 }

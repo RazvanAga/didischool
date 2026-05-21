@@ -17,6 +17,7 @@ const PALETTE = [
 export function AteliereSection() {
   return (
     <section className="relative pt-12 pb-16" style={{ backgroundColor: '#FEF3C7' }}>
+      <div className="shell">
       {/* Title pill */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -88,6 +89,7 @@ export function AteliereSection() {
       <p className="mt-6 px-6 text-center text-[13.5px] text-[#78350F] font-body leading-relaxed">
         Programul se aranjează după înscrieri. Scrie-ne pe WhatsApp ce te interesează.
       </p>
+      </div>
     </section>
   )
 }
