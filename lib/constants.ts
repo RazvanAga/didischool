@@ -208,7 +208,7 @@ export const INCLUDE_PRETUL = [
 ] as const
 
 export const PRET_BAZA = 80
-export const PRET_MASA = 20
+export const PRET_MASA = 19
 
 export const ATELIERE = [
   {

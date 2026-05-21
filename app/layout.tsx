@@ -14,18 +14,16 @@ const SITE_URL = 'https://didischool.ro'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Didi Summer School 2026 — Tabără de zi în Giroc, 4-12 ani',
-  description:
-    'Vara copilului tău pe 2000 mp de curte, cu supraveghere caldă și activități zilnice. 15 iunie – 15 septembrie. Giroc, Timiș.',
+  title: 'Didi Summer School 2026',
+  description: 'Cea mai frumoasă vară a copilului tău.',
   openGraph: {
-    title: 'Didi Summer School 2026 — cea mai frumoasă vară a copilului tău',
-    description:
-      '2000 mp curte, supraveghere 07:00–18:00, 4-12 ani. Înscrieri deschise.',
+    title: 'Didi Summer School 2026',
+    description: 'Cea mai frumoasă vară a copilului tău.',
     url: SITE_URL,
     siteName: 'Didi Afterschool',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'Didi Summer School 2026',

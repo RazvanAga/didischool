@@ -24,7 +24,10 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Razvan\\\\Projects\\\\didischool\" -Recurse -Depth 3)",
       "Bash(Select-Object FullName)",
       "Bash(npx tsc *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(python -c \"import sys,json; [print\\(f['name']\\) for f in json.load\\(sys.stdin\\)]\")",
+      "Bash(python *)",
+      "Bash(pip install *)"
     ]
   }
 }
