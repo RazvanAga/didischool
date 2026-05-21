@@ -27,7 +27,8 @@
       "Bash(npx next *)",
       "Bash(python -c \"import sys,json; [print\\(f['name']\\) for f in json.load\\(sys.stdin\\)]\")",
       "Bash(python *)",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Bash(awk '{print $1/1024 \" KB\"}')"
     ]
   }
 }
