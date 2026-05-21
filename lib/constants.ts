@@ -28,7 +28,7 @@ export const SPATIU_PHOTOS = [
     src: '/images/photos/football.JPG',
     alt: 'Fotbal în curte',
     duck: '/images/duck-avatars/duck-ball.png',
-    caption: '2000 mp de curte — fotbal cât vrei',
+    caption: 'Curte spațioasă, perfectă pentru joacă',
   },
   {
     src: '/images/photos/reading.JPG',
@@ -129,27 +129,27 @@ export const ZI_TIPICA = [
     duck: '/images/duck-avatars/duck-car.png',
   },
   {
-    time: '07:30',
+    time: '08:80',
     title: 'Mic dejun',
-    description: 'Comandat și coordonat de Didi.',
+    description: 'Fiecare copil mananca pachetelul luat de acasa',
     duck: '/images/duck-avatars/duck-food.png',
   },
   {
     time: '08:30',
     title: 'Teme de vacanță',
-    description: 'Cele două cadre didactice acreditate fac temele împreună cu fiecare copil în parte.',
+    description: 'Cadrele didactice acreditate fac temele de vacanță împreună cu copii.',
     duck: '/images/duck-avatars/duck-book.png',
   },
   {
-    time: '10:00',
+    time: '10:30',
     title: 'Joacă liberă în curte',
-    description: 'Fotbal, ping-pong, trambulină, căsuță în copac, trotinete, leagăne.',
+    description: 'Fotbal, ping-pong, trambulină, căsuță în copac, piscina, trotinete, leagăne.',
     duck: '/images/duck-avatars/duck-ball.png',
   },
   {
     time: '12:30',
     title: 'Prânz',
-    description: 'Comandat individual de fiecare familie, intermediat de Didi.',
+    description: 'Comandat de la firma de catering pentru fiecare copil care alege aceasta optiune, intermediat de Didi.',
     duck: '/images/duck-avatars/duck-food.png',
   },
   {
@@ -165,7 +165,7 @@ export const ZI_TIPICA = [
     duck: '/images/duck-avatars/duck-paint.png',
   },
   {
-    time: '16:00',
+    time: '16:30',
     title: 'Joacă în curte',
     description: 'Activități libere supravegheate.',
     duck: '/images/duck-avatars/duck-ping-pong.png',
@@ -191,7 +191,7 @@ export const INCLUDE_PRETUL = [
     duck: '/images/duck-avatars/duck-book.png',
   },
   {
-    title: '2000 mp de curte',
+    title: 'Curte spațioasă',
     description: 'Fotbal, trambulină, căsuță în copac, ping-pong.',
     duck: '/images/duck-avatars/duck-ball.png',
   },
@@ -223,15 +223,9 @@ export const ATELIERE = [
     duck: '/images/duck-avatars/duck-globe.png',
   },
   {
-    name: 'Artă',
-    price: 20,
-    description: 'Pictură, modelaj, colaj.',
-    duck: '/images/duck-avatars/duck-paint.png',
-  },
-  {
-    name: 'Fizică și Experimente',
+    name: 'Științe',
     price: 50,
-    description: 'Experimente interactive.',
+    description: 'Fizică și experimente interactive.',
     duck: '/images/duck-avatars/duck-experiments.png',
   },
   {
@@ -243,12 +237,18 @@ export const ATELIERE = [
   {
     name: 'Robotică',
     price: 60,
-    description: 'Construcție și programare de roboței.',
+    description: 'Programare Arduino și circuite.',
     duck: '/images/duck-avatars/duck-robotics.png',
   },
   {
+    name: 'Artă',
+    price: 20,
+    description: 'Pictură, modelaj, colaj.',
+    duck: '/images/duck-avatars/duck-paint.png',
+  },
+  {
     name: 'Șah',
-    price: 50,
+    price: 30,
     description: 'Gândire strategică prin joc.',
     duck: '/images/duck-avatars/duck-chess.png',
   },

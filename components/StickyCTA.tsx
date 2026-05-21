@@ -9,6 +9,13 @@ import { trackWhatsApp } from '@/lib/tracking'
 export function StickyCTA() {
   const [visible, setVisible] = useState(false)
   const [pulse, setPulse] = useState(false)
+  const [waMessage, setWaMessage] = useState<string>(WHATSAPP_MESSAGES.sticky)
+
+  useEffect(() => {
+    const handler = (e: Event) => setWaMessage((e as CustomEvent<string>).detail)
+    window.addEventListener('wa-message-update', handler)
+    return () => window.removeEventListener('wa-message-update', handler)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
@@ -59,7 +66,7 @@ export function StickyCTA() {
         >
           <div className="shell">
             <motion.a
-              href={waLink(WHATSAPP_MESSAGES.sticky)}
+              href={waLink(waMessage)}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsApp('sticky')}

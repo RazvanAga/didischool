@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from './Button'
 import { Card } from './Card'
@@ -121,6 +121,10 @@ export function PreturiSection() {
 
   const message = buildMessage(wantsMasa, selectedAteliere)
 
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('wa-message-update', { detail: message }))
+  }, [message])
+
   return (
     <section className="relative bg-brand-yellow pt-12 pb-20 px-5 overflow-hidden">
 
@@ -189,7 +193,7 @@ export function PreturiSection() {
           <CheckRow
             checked={wantsMasa}
             onToggle={() => setWantsMasa((v) => !v)}
-            label="Mic dejun + Prânz"
+            label="Prânz"
             sublabel="comandat prin noi"
             price={`+${PRET_MASA} lei / zi`}
             accent="#D04C4C"
